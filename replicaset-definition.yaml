@@ -1,0 +1,29 @@
+# kubectl create -f replicaset-definition.yaml
+# kubectl get replicaset
+# kubectl get pods
+# kubectl replace -f replicaset-definition.yaml
+#hoac: kubectl scale --replicas=6 -f replicaset-definition.yaml
+#hoac thay vi file yaml thi la name(myapp-replicaset) type(replicaset): kubectl scale --replicas=6 -f replicaset myapp-replicaset
+# kubectl delete replicaset myapp-replicaset
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myapp-replicaset
+  labels:
+    app: myapp
+    type: frontend
+spec:
+  template:
+    metadata:
+      name: myapp-pod
+      labels:
+        app: myapp
+        type: frontend
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx
+  replicas: 3
+  selector:
+    matchLabels:
+      type: frontend
