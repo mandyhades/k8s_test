@@ -1,0 +1,15 @@
+# api , kind, metadata, spec:phien ban API ,thuoc tinh , sieu du lieu, thong so ky thuat
+#kubectl create -f pod-definitions.yaml
+# kubectl get pods
+# kubectl describe podmyapp-pod
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  labels:
+    app: myapp
+    type: frontend
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
