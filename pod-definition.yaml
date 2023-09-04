@@ -1,5 +1,6 @@
 # api , kind, metadata, spec:phien ban API ,thuoc tinh , sieu du lieu, thong so ky thuat
 #kubectl create -f pod-definitions.yaml
+#kubectl apply -f pod-definitions.yaml
 # kubectl get pods
 # kubectl describe podmyapp-pod
 apiVersion: v1
@@ -13,3 +14,5 @@ spec:
   containers:
     - name: nginx-container
       image: nginx
+    - name: busybox
+      image: busybox
