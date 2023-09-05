@@ -347,3 +347,25 @@ kubectl apply -f redis.yaml
 
 replication controller : old , sap bi loai bo
 replica set : new , duoc su dung rong rai
+
+## **_k8s networking_**
+- minikube là một máy ảo . vd: host: 192.168.1.10 , minikube:192.168.1.5
+- worker node tạo ra các pod , các pod được tạo ra là ip private (có dạng 10.244.0.2,10.244.0.3 ...)
+
+## cluster networking k8s
+sử dụng flanel : https://github.com/flannel-io/flannel
+sử dụng Calico (khuyến nghị) : https://www.tigera.io/project-calico/
+https://www.kube-router.io/
+https://en.wikipedia.org/wiki/OSI_model
+https://kubernetes.io/docs/concepts/cluster-administration/networking/
+
+
+## **_k8s service network_**
+
+có 3 loại service network:
+## **NodePort**
+Ánh xạ ip:port POD - ip:port service - ip:port NodePort (ip: ip worker node,range port: 30000-32767)
+## **Cluster IP**
+cluster 3 node fron end hoặc 3 node backend hoặc 3 node db cache (redis)
+## **Load Balancer**
+1 domain nhiều ip ( load balance giống nginx)
